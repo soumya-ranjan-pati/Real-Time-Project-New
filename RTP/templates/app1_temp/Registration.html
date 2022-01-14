@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+{% block content %}
+   {% load static %}
+    <table align="center" border="0" width="400px" height="200px">
+     <tr>
+         <th colspan="2" style="text-align: center;font-size: 30px;font-family: 'Arial Black';background-color: yellow;color: deeppink">
+             Registration Form
+         </th>
+     </tr>
+        {% for x in form %}
+      <tr>
+         <th style="font-family: Algerian;font-size: 20px;background-color: aqua;color: red">
+             {{ x.label }}
+         </th>
+         <th style="background-color: greenyellow">
+             {{ x }}
+         </th>
+      </tr>
+        {% endfor %}
+      <tr>
+         <th style="text-align: center;background-color: crimson" colspan="2">
+             <button type="submit" class="btn btn-primary" >Register</button>
+         </th>
+      </tr>
+
+    </table>
+{% endblock %}
