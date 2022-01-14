@@ -11,6 +11,12 @@ def showindex(request):
 def registration(request):
     rf=RegistrationForm(request.POST)
     if request.method == 'POST':
-        pass
+        if rf.is_valid():
+            #rf.otp = 5475
+            #rf.status = 'pending'#Not Write status in this place means this status write in default in models thats way
+            rf.save()
+
+        else:
+            return render(request,'app1_temp/Registration.html',{'form':rf})
     else:
         return render(request,'app1_temp/Registration.html',{'form':rf})
