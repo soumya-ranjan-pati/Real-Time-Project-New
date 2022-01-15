@@ -23,8 +23,11 @@
          <th>{{ form.email }}</th>
       </tr>
       <tr>
-         <th>{{ form.password.label }}</th>
-         <th>{{ form.password }}</th>
+          <th>{{ form.password.label }}</th>
+          <th>{{ form.password }}</th>
+
+          {# <th>Password:<input type="password" name="password" required="" id="id_password"></th>#}
+
       </tr>
 
     <tr>
@@ -33,7 +36,7 @@
          {#{{ form.otp }}#}
          {# first you write {{ form.password }} and u fill all the table in browser and after right click this otp table and inspect this and copy this and paste  #}
 
-        <input type="hidden" name="otp" required="" id="id_otp" value="0">
+               <input type="hidden" name="otp" required="" id="id_otp" value="0">
         </th>
       </tr>
       <tr>
