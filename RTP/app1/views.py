@@ -41,6 +41,7 @@ def validate_otp(request):#get--it will return only one object
         elif result.status == 'approved':
             success(request,'Your Registration Is Already Approved')
             return redirect('conformation')
+        #elif result.status
 
     except RegistrationModel.DoesNotExist:
         message='Sorry This User Is Invalid'
@@ -54,3 +55,29 @@ def conformation(request):
 
 def login(request):
     return render(request,'app1_temp/login.html')
+
+#use session
+def logincheck(request):
+    try:
+        result=RegistrationModel.objects.get(email=request.POST.get('u1'),password=request.POST.get('u2'))
+        #your status is pending then write and showing some error message
+        if result.status == 'pending':
+            return render(request,'app1_temp/login.html',{"error":"Sorry Your Registration Is Not Approved"})
+        #your status is closed then write and showing some error message
+        if result.status == 'closed':
+            return render(request,'app1_temp/login.html',{'error1':'Sorry Your Account Is Closed'})
+        #your status is approved then showing this message--welcome to profile page
+        request.session['contact']=result.contact
+        request.session['name']=result.name
+        return  redirect('view_profile')
+    except RegistrationModel.DoesNotExist:
+        return render(request,'app1_temp/login.html',{"error":"Invalid User"})
+def view_profile(request):
+    return render(request,'app1_temp/view_profile.html')
+
+
+def logout(request):
+    #delete the session
+    del request.session['contact']
+    del request.session['name']
+    return redirect('main')

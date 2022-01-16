@@ -13,5 +13,8 @@ urlpatterns = [
     path('conformation/',views.conformation,name='conformation'),
     #login page
     path('login/',views.login,name='login'),
+    path('login_check/',views.logincheck,name='login_check'),
+    path('view_profile/',views.view_profile,name='view_profile'),
+    path('logout/',views.logout,name='logout'),
 ]
 

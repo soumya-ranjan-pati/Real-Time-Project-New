@@ -35,20 +35,20 @@
         <a class="nav-link" href="{% url 'registration' %}">Registration<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Login<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'login' %}">Login<span class="sr-only">(current)</span></a>
       </li>
        <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Profile
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">View Profile</a>
+          <a class="dropdown-item" href="{% url 'view_profile' %}">View Profile</a>
           <a class="dropdown-item" href="#">Update Profile</a>
           <a class="dropdown-item" href="#">Delete Profile</a>
         </div>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Logout<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'logout' %}">Logout<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="#">About Us<span class="sr-only">(current)</span></a>
